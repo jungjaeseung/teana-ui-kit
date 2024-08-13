@@ -1,0 +1,51 @@
+{
+  "I-Bricks Component Template": {
+    "prefix": "ibc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "type ${1:Component}Props = {",
+      "\t${2}",
+      "}",
+      "",
+      "const ${1:Component} = ({${3}}:${1:Component}Props) => {",
+      "return (<div>${1:Component}</div>);",
+      "};",
+      "",
+      "export default ${1:Component};"
+    ]
+  },
+  "I-Bricks Client Component Template": {
+    "prefix": "ibcc",
+    "body": [
+      "\"use client\";",
+      "import React from 'react';",
+      "",
+      "type ${1:Component}Props = {",
+      "\t${2}",
+      "}",
+      "",
+      "const ${1:Component} = ({${3}}:${1:Component}Props) => {",
+      "return (<div>${1:Component}</div>);",
+      "};",
+      "",
+      "export default ${1:Component};"
+    ]
+  },
+  "I-Bricks Storybook Component Template": {
+    "prefix": "sbc",
+    "body": [
+      "import React from 'react';",
+      "",
+      "export interface ${1:Component}Props {",
+      "\t${2}",
+      "}",
+      "",
+      "const ${1:Component} = ({${3}}:${1:Component}Props) => {",
+      "return (<div>${1:Component}</div>);",
+      "};",
+      "",
+      "export default ${1:Component};"
+    ]
+  }
+}
