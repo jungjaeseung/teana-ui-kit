@@ -63,6 +63,7 @@ export interface LeftHeaderProps {
     img?: string;
     auth: string;
   };
+  onItemClick: (id: string) => void;
 }
 
 const LeftHeader = ({
@@ -74,6 +75,7 @@ const LeftHeader = ({
   generalInfo,
   selectedArr,
   userInfo,
+  onItemClick,
 }: LeftHeaderProps) => {
   return (
     <div
@@ -124,6 +126,9 @@ const LeftHeader = ({
                   <div
                     className=" flex items-center gap-2 pl-3 py-[6px] pr-2 rounded-lg cursor-pointer hover:bg-gray-100"
                     key={i.id}
+                    onClick={() => {
+                      onItemClick(i.id);
+                    }}
                   >
                     <div
                       className=" grow text-sm text-gray-700 leading-5 truncate"
