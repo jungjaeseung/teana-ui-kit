@@ -31,6 +31,7 @@ const SelectArea = ({}: SelectAreaProps) => {
     <div className=" relative flex">
       {datas1.map((data) => (
         <DefaultButton
+          key={data.id}
           selected={selected === data.id}
           label={data.label}
           id={data.id}

@@ -26,6 +26,7 @@ const GrayArea = ({}: GrayAreaProps) => {
       </div>
       {datas.map((data) => (
         <ClickableTextButton
+          key={data.id}
           id={data.id}
           onClick={() => {
             console.log("clicked:: " + data.id);

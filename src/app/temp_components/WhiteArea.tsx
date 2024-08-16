@@ -32,6 +32,7 @@ const WhiteArea = ({}: WhiteAreaProps) => {
     <div className={` bg-white w-[200px] rounded-md p-1`}>
       {datas.map((data) => (
         <ClickableTextButton
+          key={data.id}
           id={data.id}
           onClick={() => {
             console.log("clicked:: " + data.id);
