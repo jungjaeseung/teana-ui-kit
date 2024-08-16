@@ -1,29 +1,60 @@
-"use client";
-import HeaderNavigation from "@/stories/organisms/HeaderNavigation";
 import React from "react";
-import HeaderLogoButton from "../atoms/Button/HeaderLogoButton";
-
+import { FaFileAlt } from "react-icons/fa";
+import { FiLink } from "react-icons/fi";
+import IconTitleDesc from "../molecules/IconTitleDesc";
+import HoverDescriptionIcon from "../atoms/Icon/HoverDescriptionIcon";
+import HeaderTabNavigationButton from "../atoms/Button/HeaderTabNavigationButton";
 type HeaderProps = {
-  appInfo: {
-    img: string;
-    href: string;
+  ItemData?: {
+    Icon: React.JSX.Element;
+    title: string;
+    desc: string;
+    bgColor: string;
   };
-  headerInfo: {
-    label: string;
-    IconNonSel: React.JSX.Element;
-    IconSel: React.JSX.Element;
-    href: string;
-  }[];
+  tabData?: { href: string; selected: boolean; label: string }[];
+  descIconInfo?: React.JSX.Element;
 };
 
-const Header = ({ appInfo, headerInfo }: HeaderProps) => {
+const Header = ({ ItemData, tabData = [], descIconInfo }: HeaderProps) => {
+  if (
+    ItemData === undefined &&
+    tabData.length === 0 &&
+    descIconInfo === undefined
+  ) {
+    return null;
+  }
   return (
-    <div className=" sticky top-0 left-0 right-0 z-30 flex flex-col grow-0 shrink-0 basis-auto min-h-[56px] border-b border-gray-200">
-      <div className=" flex flex-1 items-center justify-between px-4">
-        <HeaderLogoButton img={appInfo.img} href={appInfo.href} />
-        <HeaderNavigation headerInfo={headerInfo} />
-        <div>유저히어로</div>
+    <div className=" sticky top-0 left-0 right-0 z-30  md:px-9 px-6">
+      <div className=" flex items-center justify-between">
+        {ItemData !== undefined && (
+          <IconTitleDesc
+            Icon={ItemData.Icon}
+            title={ItemData.title}
+            desc={ItemData.desc}
+            bgColor={ItemData.bgColor}
+          />
+        )}
+        {descIconInfo && (
+          <HoverDescriptionIcon Icon={<FiLink className=" w-3 h-3" />}>
+            {descIconInfo}
+          </HoverDescriptionIcon>
+        )}
       </div>
+
+      {tabData.length > 0 && (
+        <div
+          className={`${ItemData === undefined && descIconInfo === undefined ? " pt-6" : ""} flex flex-1 items-center h-full border-b-[2px] border-gray-200 shrink-0`}
+        >
+          {tabData.map((tab) => (
+            <HeaderTabNavigationButton
+              href={tab.href}
+              selected={tab.selected}
+              label={tab.label}
+              key={tab.href}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

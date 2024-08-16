@@ -23,6 +23,7 @@ const HeaderNavigation = ({ headerInfo }: HeaderNavigationProps) => {
     <div className=" flex items-center">
       {headerInfo.map((info, idx) => (
         <HeaderButton
+          key={info.href}
           selected={isSelectedArr[idx]}
           IconSel={info.IconSel}
           IconNonSel={info.IconNonSel}

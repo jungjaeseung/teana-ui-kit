@@ -29,10 +29,11 @@ export interface TextSearchInputProps {
   /**
    * Input의 width값 수정
    */
-  size?: "small" | "medium" | "large";
+  size?: "transparent" | "small" | "medium" | "large";
 }
 
 const InputConfig = {
+  transparent: "",
   small: "w-[200px]",
   medium: "w-[250px]",
   large: "w-[300px]",

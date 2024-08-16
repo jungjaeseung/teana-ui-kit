@@ -70,6 +70,7 @@ const HeaderNavigation = () => {
     <div className=" flex relative">
       {datas.map((data) => (
         <DefaultButton
+          key={data.id}
           selected={selected === data.id}
           label={data.label}
           Icon={<data.Icon />}
